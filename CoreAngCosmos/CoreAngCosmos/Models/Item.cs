@@ -34,5 +34,7 @@ namespace Models
         [JsonProperty(PropertyName = "updateddate")]
         public DateTimeOffset? UpdatedDate { get; set; }
 
+        [JsonIgnore]
+        public override string PartitionKey => Id;
     }
 }

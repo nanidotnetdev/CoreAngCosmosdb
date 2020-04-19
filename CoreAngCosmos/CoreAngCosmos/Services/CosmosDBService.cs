@@ -13,7 +13,7 @@ namespace CoreAngCosmos.Services
     {
         private Container _container;
 
-        private static CosmosClient _client;
+        protected static CosmosClient _client;
         private readonly IICosmosConfig _cosmosConfig;
 
         /// <summary>
@@ -25,15 +25,14 @@ namespace CoreAngCosmos.Services
         {
             _cosmosConfig = cosmosConfig;
 
-            var configurationSection = config.GetSection("CosmosDb");
             DatabaseResponse database = null;
 
-            string databaseName = configurationSection.GetSection("DatabaseName").Value;
+            string databaseName = config["CosmosDb:DatabaseName"];
 
             if (_client == null)
             {
-                string account = configurationSection.GetSection("Account").Value;
-                string key = configurationSection.GetSection("Key").Value;
+                string account = config["CosmosDb:Account"];
+                string key = config["CosmosDb:Key"];
 
                 CosmosClientBuilder clientBuilder = new CosmosClientBuilder(account, key);
                 _client = clientBuilder
@@ -44,14 +43,9 @@ namespace CoreAngCosmos.Services
             }
 
             _container = _client.GetContainer(databaseName, cosmosConfig.ContainerName);
-            database?.Database.CreateContainerIfNotExistsAsync(cosmosConfig.ContainerName, cosmosConfig.PartitionKey)
+            database?.Database.CreateContainerIfNotExistsAsync(cosmosConfig.ContainerName, $"/{cosmosConfig.PartitionKey}")
                 .GetAwaiter().GetResult();
         }
-
-        //public CosmosDbService(CosmosClient dbClient, string dbName, string containerName)
-        //{
-        //    this._container = dbClient.GetContainer(dbName, containerName);
-        //}
 
         /// <summary>
         /// 
@@ -60,7 +54,7 @@ namespace CoreAngCosmos.Services
         /// <returns></returns>
         public virtual async Task DeleteItemAsync(string id)
         {
-            await this._container.DeleteItemAsync<T>(id, new PartitionKey(_cosmosConfig.PartitionKey));
+            await this._container.DeleteItemAsync<T>(id, new PartitionKey(id));
         }
 
         /// <summary>
@@ -91,7 +85,7 @@ namespace CoreAngCosmos.Services
         {
             try
             {
-                ItemResponse<T> response = await this._container.ReadItemAsync<T>(id, new PartitionKey(_cosmosConfig.PartitionKey));
+                ItemResponse<T> response = await this._container.ReadItemAsync<T>(id, new PartitionKey(id));
                 return response.Resource;
             }
             catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -107,7 +101,7 @@ namespace CoreAngCosmos.Services
         /// <returns></returns>
         public virtual async Task CreateAsync(T item)
         {
-            await _container.CreateItemAsync<T>(item, new PartitionKey(_cosmosConfig.PartitionKey));
+            await _container.CreateItemAsync<T>(item, new PartitionKey(item.PartitionKey));
         }
 
         /// <summary>
@@ -116,7 +110,7 @@ namespace CoreAngCosmos.Services
         /// <returns></returns>
         public async Task UpdateAsync(T item)
         {
-            await _container.UpsertItemAsync<T>(item, new PartitionKey(_cosmosConfig.PartitionKey));
+            await _container.UpsertItemAsync<T>(item, new PartitionKey(item.PartitionKey));
         }
     }
 }

@@ -9,7 +9,7 @@ namespace CoreAngCosmos.Services
         private static readonly IICosmosConfig cosmosConfig = new CosmosConfig
         {
             ContainerName = "Items",
-            PartitionKey = "/id"
+            PartitionKey = "id"
         };
 
         public ItemService(IConfiguration config) : base(cosmosConfig, config)
