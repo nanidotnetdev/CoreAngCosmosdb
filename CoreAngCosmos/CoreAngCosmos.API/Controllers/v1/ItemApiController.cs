@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CoreAngCosmos.Models;
 using CoreAngCosmos.Services;
 using Microsoft.AspNetCore.Mvc;
-using Models;
 
-namespace CoreAngCosmos.Controllers.v1
+namespace CoreAngCosmos.API.Controllers.v1
 {
     [Route("api/v1/[controller]")]
     [ApiController]

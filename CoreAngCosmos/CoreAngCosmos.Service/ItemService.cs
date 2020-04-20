@@ -1,6 +1,6 @@
-﻿using CoreAngCosmos.Helpers;
+﻿using CoreAngCosmos.Models;
+using CoreAngCosmos.Models.Helpers;
 using Microsoft.Extensions.Configuration;
-using Models;
 
 namespace CoreAngCosmos.Services
 {

@@ -1,4 +1,4 @@
-﻿namespace CoreAngCosmos.Helpers
+﻿namespace CoreAngCosmos.Models.Helpers
 {
     public class CosmosConfig: IICosmosConfig
     {

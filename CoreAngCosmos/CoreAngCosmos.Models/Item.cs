@@ -1,9 +1,7 @@
-﻿using System;
-using CoreAngCosmos.Models;
-
-namespace Models
+﻿namespace CoreAngCosmos.Models
 {
     using Newtonsoft.Json;
+    using System;
 
     public class Item: CosmosItem
     {

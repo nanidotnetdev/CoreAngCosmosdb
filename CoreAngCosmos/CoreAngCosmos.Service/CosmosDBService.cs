@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CoreAngCosmos.Helpers;
 using CoreAngCosmos.Models;
+using CoreAngCosmos.Models.Helpers;
 using Microsoft.Azure.Cosmos.Fluent;
 using Microsoft.Extensions.Configuration;
 
