@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreAngCosmos.UI", "CoreAngCosmos\CoreAngCosmos.UI.csproj", "{75B4BBF4-DDB0-4050-881B-F361338845F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreAngCosmos.API", "CoreAngCosmos.API\CoreAngCosmos.API.csproj", "{5277D95B-48E6-43B5-92EB-BFF07FD8CBC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreAngCosmos.API", "CoreAngCosmos.API\CoreAngCosmos.API.csproj", "{5277D95B-48E6-43B5-92EB-BFF07FD8CBC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreAngCosmos.Services", "CoreAngCosmos.Service\CoreAngCosmos.Services.csproj", "{0FF2F994-44A9-40DD-854B-E2EA77E28710}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreAngCosmos.Services", "CoreAngCosmos.Service\CoreAngCosmos.Services.csproj", "{0FF2F994-44A9-40DD-854B-E2EA77E28710}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreAngCosmos.Models", "CoreAngCosmos.Models\CoreAngCosmos.Models.csproj", "{DD37F64B-CC69-4928-BF0B-B8574D4B8185}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreAngCosmos.Models", "CoreAngCosmos.Models\CoreAngCosmos.Models.csproj", "{DD37F64B-CC69-4928-BF0B-B8574D4B8185}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreAngCosmos.UI", "CoreAngCosmos.UI\CoreAngCosmos.UI.csproj", "{80B43970-087D-4144-A4BC-FFF4267C156A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{75B4BBF4-DDB0-4050-881B-F361338845F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75B4BBF4-DDB0-4050-881B-F361338845F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75B4BBF4-DDB0-4050-881B-F361338845F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75B4BBF4-DDB0-4050-881B-F361338845F1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5277D95B-48E6-43B5-92EB-BFF07FD8CBC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5277D95B-48E6-43B5-92EB-BFF07FD8CBC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5277D95B-48E6-43B5-92EB-BFF07FD8CBC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{DD37F64B-CC69-4928-BF0B-B8574D4B8185}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD37F64B-CC69-4928-BF0B-B8574D4B8185}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD37F64B-CC69-4928-BF0B-B8574D4B8185}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80B43970-087D-4144-A4BC-FFF4267C156A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80B43970-087D-4144-A4BC-FFF4267C156A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80B43970-087D-4144-A4BC-FFF4267C156A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80B43970-087D-4144-A4BC-FFF4267C156A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
