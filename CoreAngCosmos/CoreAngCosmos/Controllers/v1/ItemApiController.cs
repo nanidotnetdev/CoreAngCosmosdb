@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CoreAngCosmos.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +23,17 @@ namespace CoreAngCosmos.Controllers.v1
         public ItemApiController(IItemService itemService)
         {
             _itemService = itemService;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetAll")]
+        public async Task<IEnumerable<Item>> GetAllAsync()
+        {
+            return await _itemService.GetAsync("select * from c");
         }
 
         /// <summary>
