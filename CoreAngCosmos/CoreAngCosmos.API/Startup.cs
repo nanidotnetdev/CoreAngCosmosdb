@@ -8,6 +8,8 @@ namespace CoreAngCosmos.API
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -19,6 +21,15 @@ namespace CoreAngCosmos.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                    builder =>
+                    {
+                        builder.WithOrigins(Configuration["API:URL"]);
+                    });
+            });
 
             services.AddTransient<IItemService, ItemService>();
         }
@@ -34,6 +45,8 @@ namespace CoreAngCosmos.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 
