@@ -27,7 +27,7 @@ namespace CoreAngCosmos.API
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                     builder =>
                     {
-                        builder.WithOrigins(Configuration["API:URL"]);
+                        builder.WithOrigins(Configuration["NetCoreAngUrl"]);
                     });
             });
 
