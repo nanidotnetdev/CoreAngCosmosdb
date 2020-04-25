@@ -1,14 +1,17 @@
+using CoreAngCosmos.API.Helpers;
 using CoreAngCosmos.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+
 namespace CoreAngCosmos.API
 {
     public class Startup
     {
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        private readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public Startup(IConfiguration configuration)
         {
@@ -29,6 +32,13 @@ namespace CoreAngCosmos.API
                     {
                         builder.WithOrigins(Configuration["NetCoreAngUrl"]);
                     });
+            });
+
+            services.AddMvc(c => c.Conventions.Add(new ApiExplorerGroupPerVersionConvention()));
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API V1", Version = "v1" });
             });
 
             services.AddTransient<IItemService, ItemService>();
@@ -53,6 +63,13 @@ namespace CoreAngCosmos.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
             });
         }
     }
