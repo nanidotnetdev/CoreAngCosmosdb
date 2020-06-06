@@ -10,8 +10,6 @@ export class ItemService {
   }
 
   getItems() {
-    console.log(this.configService)
-    console.log(this.configService.config)
     return this.http.get<Item[]>(this.configService.config.apiUrl + 'api/v1/ItemApi/Getall');
   }
 }
