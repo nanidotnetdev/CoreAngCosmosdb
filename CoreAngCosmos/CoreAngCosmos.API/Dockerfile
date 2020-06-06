@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
-COPY ["CoreAngCosmos.API/CoreAngCosmos.API.csproj", "CoreAngCosmos.API/"]
+COPY ["CoreAngCosmosdb/CoreAngCosmos.API/CoreAngCosmos.API.csproj", "CoreAngCosmos.API/"]
 COPY ["CoreAngCosmos.Service/CoreAngCosmos.Services.csproj", "CoreAngCosmos.Service/"]
 COPY ["CoreAngCosmos.Models/CoreAngCosmos.Models.csproj", "CoreAngCosmos.Models/"]
 RUN dotnet restore "CoreAngCosmos.API/CoreAngCosmos.API.csproj"
