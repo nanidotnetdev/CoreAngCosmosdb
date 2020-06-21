@@ -12,7 +12,7 @@ COPY ["CoreAngCosmos.Service/CoreAngCosmos.Services.csproj", "CoreAngCosmos.Serv
 COPY ["CoreAngCosmos.Models/CoreAngCosmos.Models.csproj", "CoreAngCosmos.Models/"]
 RUN dotnet restore "CoreAngCosmos.API/CoreAngCosmos.API.csproj"
 COPY . .
-WORKDIR "/src/CoreAngCosmos/CoreAngCosmos.API"
+WORKDIR "/src/CoreAngCosmos.API"
 RUN dotnet build "CoreAngCosmos.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
