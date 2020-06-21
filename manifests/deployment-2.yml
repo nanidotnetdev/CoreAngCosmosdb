@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: "coreangcosmoscluster-ba9b"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "coreangcosmoscluster-ba9b"
+    spec:
+      containers:
+        - name: "coreangcosmoscluster-ba9b"
+          image: "coreangcosmosregistry.azurecr.io/coreangcosmoscluster"
+          ports:
+          - containerPort: 80
