@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: "coreangcosmoscluster-953f"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "coreangcosmoscluster-953f"
+    spec:
+      containers:
+        - name: "coreangcosmoscluster-953f"
+          image: "coreangcosmosregistry.azurecr.io/coreangcosmoscluster"
+          ports:
+          - containerPort: 8080
