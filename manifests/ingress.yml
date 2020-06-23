@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "coreangcosmosaks-ef03"
+    labels:
+        app: "coreangcosmosaks-ef03"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: coreangcosmosaks6927-coreangcosmosaks-ef03.46cd09cf4e8b45569d18.eastus.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "coreangcosmosaks-ef03"
+                servicePort: 443
