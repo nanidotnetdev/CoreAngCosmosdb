@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: "coreangcosmosaks-ef03"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "coreangcosmosaks-ef03"
+    spec:
+      containers:
+        - name: "coreangcosmosaks-ef03"
+          image: "coreangcosmosregistry.azurecr.io/coreangcosmosaks"
+          ports:
+          - containerPort: 443
